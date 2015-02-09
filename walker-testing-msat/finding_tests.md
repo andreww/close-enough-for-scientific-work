@@ -63,12 +63,18 @@ During this process we think we learned something about testing
 
 Illustrate with Backus averaging of a stack of isotropic layers.
 
+* Initially we can think about rays going normal to the layers, this is 
+implies that the stress in each layer is constant and we have Voigt (check)
+avarage of $C_{33}$. This is our first test (and deserves a Figure)
+* We also have an argument about symmetry, must be hexagonal. This is our
+second test.
+* But even together this is not enough - how can we go further?
 * Point out that the literature is a good source of tests and these
 tests have a special place in confirming scientific reproducibility.
 * Argue that "good enough" in this context is sufficiently good to 
 reproduce the published work, given the precision of the reported results.
 
-# Building a library of tests 
+## Building a library of tests 
 
 * Make the point that it is valuable to include tests for all published
 examples, not just a subset of them. Note that not doing this has caught
