@@ -1,9 +1,31 @@
-# Finding tests for the Matlab Seismic Anisotropy Toolkit
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage[colorlinks,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lineno}
 
-Andrew M. Walker <a.walker@leeds.ac.uk> and James Wookey
+
+
+\title{Finding tests for the Matlab Seismic Anisotropy Toolkit}
+\author{Andrew M. Walker\footnote{School of Earth and Environment, 
+                   University of Leeds, Leeds, LS2 9JT, UK. \url{a.walker@leeds.ac.uk} }
+\and 
+             James Wookey\footnote{School of Earth Sciences, 
+                    University of Bristol, Queen's Road, Bristol, BS8 1RT, UK.}}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\linenumbers
+
 
 During 2011 and 2012 we created MSAT, the Matlab Seismic Anisotropy
-Toolkit [^1][^2]. We aimed to create a reusable, maintainable and documented
+Toolkit \cite{Walker2012c}. We aimed to create a reusable, maintainable and documented
 software suite to enable easer modelling of seismic anisotropy. This 
 variation of seismic wave speed with direction is a property of many 
 Earth materials that offers insight into processes such as the geometry
@@ -24,7 +46,7 @@ tests themselves we provide some background on the scientific problem
 the code is designed to solve and why we chose to build and release a 
 toolbox to in the first place.
 
-## Building MSAT
+\section{Building MSAT}
 
 Seismologists study the propagation of elastic waves through the Earth (or
 sometimes through the Moon or other planets). Analysis of the small surface 
@@ -59,7 +81,7 @@ This turned out to be a lot of work, but gave a boost to our productivity and
 
 During this process we think we learned something about testing
 
-## A first test case
+\section{A first test case}
 
 Illustrate with Backus averaging of a stack of isotropic layers.
 
@@ -74,22 +96,22 @@ tests have a special place in confirming scientific reproducibility.
 * Argue that "good enough" in this context is sufficiently good to 
 reproduce the published work, given the precision of the reported results.
 
-## Building a library of tests 
+\section{Building a library of tests}
 
 * Make the point that it is valuable to include tests for all published
 examples, not just a subset of them. Note that not doing this has caught
 us out. 
 * Illustrate this with an example, probably using tensor decomposition 
-of Browaeys and Chevrot [3].
+of Browaeys and Chevrot \cite{Browaeys2004}.
 * Sometimes test cases are of exactly the same algorithm - e.g. making
-MS_phasevels go more quickly
+MS\_phasevels go more quickly
 * Here we can be more strict with our tolerances - and we are approaching 
 the ream of numerical analysis - which is outside the main thrust of this chapter
 * But we should note that these tests should be distinct
 * Other times we have analytical solutions of simple cases, but again this is 
 outside the main thrust of the argument
 
-## Defensive programming
+\section{Defensive programming}
 
 * Comment on the fact that this is not the only way we test MSAT.
 * We need to include tests and other code to help maintain high 
@@ -98,7 +120,7 @@ with invalid data).
 * But these test case are generally ease to think about
 * And are (to some extent) orthogonal to the scientific problem
 
-## Lessons
+\section{Lessons}
 
 * Being able to reproduce previous results is a key part of science
 * Tests can automate the process of checking that our code still does 
@@ -118,8 +140,9 @@ test and the original method differ
 argue that this sort of test case should have a special place in the scientific
 method.
 
+\bibliographystyle{is-unsrt}
+\bibliography{allpapers} 
 
-[^1] https://github.com/andreww/MSAT
-[^2] http://dx.doi.org/10.1016/j.cageo.2012.05.031
-[^3] http://dx.doi.org/10.1111/j.1365-246X.2004.02415.x
 
+
+\end{document}  
