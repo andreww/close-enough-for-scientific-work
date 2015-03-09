@@ -83,11 +83,50 @@ During this process we think we learned something about testing
 
 \section{A first test case}
 
-Illustrate with Backus averaging of a stack of isotropic layers.
+Many rocks are composed of many layers of material with different elastic properties. When
+the seismic wavelength (XX-YY km) is significantly longer than the layer thickness ($\sim0.1$--
+$100$ m in many sedimentary sequences) we need to be able to describe the effective elastic
+properties of the stack of layers to make progress efficiently. MSAT provides a functions designed
+to enable the calculation of the effective elasticity of bodies such as these sedimentary sequences
+which consist of ``thin periodic layers''. For the simplest case, where each layer is isotropic, the 
+method of Backus \cite{Backus1962} is implemented and examination of this approach gives some
+useful insight into testing in MSAT.
+
+It's worth starting by thinking about the geometry of the model, as illustrated in Figure \ref{fig:backus}, 
+and thinking by about compressional waves propagating in the $x$ direction such that only $\varepsilon_{xx}$
+is non-zero. In this case the strain in each layer must be the same, which allows the calculation of each
+elastic constant starting from the definition of Hooke's Law for the layered body as a whole and in each layer separately:
+\begin{equation}
+\langle \sigma \rangle = \langle C \rangle \langle \varepsilon \rangle
+\end{equation}
+\begin{equation}
+\sigma_i = C_i \varepsilon_i
+\end{equation}
+where $\langle \; \rangle$ indicates a volume average over the layers and the subscripts represent each layer. 
+We can write 
+\begin{equation}
+\langle \sigma \rangle = \sum_i f_i \sigma_i
+\end{equation}
+\begin{equation}
+\langle \sigma \rangle = \sum_i f_i C_i \varepsilon_i
+\end{equation}
+\begin{equation}
+\varepsilon_i =  \langle \varepsilon \rangle
+\end{equation}
+\begin{equation}
+\langle \sigma \rangle = \sum_i f_i C_i \langle \varepsilon \rangle
+\end{equation}
+\begin{equation}
+\langle C \rangle \langle \varepsilon \rangle = \sum_i f_i C_i \langle \varepsilon \rangle
+\end{equation}
+\begin{equation}
+\langle C \rangle = \sum_i f_i C_i 
+\end{equation}
 
 * Initially we can think about rays going normal to the layers, this is 
 implies that the stress in each layer is constant and we have Voigt (check)
 avarage of $C_{33}$. This is our first test (and deserves a Figure)
+* Also or the $x$ direction - with must be Reuss
 * We also have an argument about symmetry, must be hexagonal. This is our
 second test.
 * But even together this is not enough - how can we go further?
@@ -95,6 +134,16 @@ second test.
 tests have a special place in confirming scientific reproducibility.
 * Argue that "good enough" in this context is sufficiently good to 
 reproduce the published work, given the precision of the reported results.
+
+\begin{figure}[htbp]
+   \centering
+   % NB: need to create this
+   % \includegraphics{example.jpg} % requires the graphicx package
+   \caption{Some figure with layers highlighting the symmetry (rotational around z) 
+                 and fact that the layers must all have the same stress for $\sigma_{zz}$
+                 and the same strain for $\sigma_{xx}$}
+   \label{fig:backus}
+\end{figure}
 
 \section{Building a library of tests}
 
