@@ -53,16 +53,18 @@ sometimes through the Moon or other planets). Analysis of the small surface
 displacement caused by these waves and recorded as seismograms by 
 seismometers allows the location and properties of earthquake source 
 and the material between the source and the seismometer to be determined.
+One important and informative property of many Earth materials is that they 
+are elastically anisotropic. This has several implications, for example elastic 
+wave velocities vary with propagation direction. Observation and modelling 
+of this seismic anisotropy can yield... [ FINISH PARAGRAPH - why we may 
+care].
 
-* Some examples
-* But we deal with anisotropy
-* seismic waves propagate at different speeds in different directions
-* and with three (rather than the familiar two) velocities 
-* analysis using seismic anisotropy can give much more information 
-about the medium (examples)
-* but is more complex
+[Do we need to see three (rather than the familiar two) velocities]
 
-Why build MSAT:
+[CORE MATHS - try to limit this to $C_{ijkl}$, stress, strain, state the important 
+symmetry and define $C_{ij}$?]
+
+[subsection here?]
 
 Before thinking about our testing strategy, it's worth first considering why
 we wanted to build MSAT in the first place. We already had a large collection 
@@ -107,6 +109,9 @@ licensed using a liberal BSD license.
 for MSAT and, as described in the rest of this chapter, set about creating test 
 cases. We also peppered the code with runtime checks to try to ensure that
 the results we were producing were reasonable. 
+
+\item[Build a toolbox, not a tool] [some words about how we want people to 
+use this!]
 
 \end{description}
 
@@ -160,17 +165,20 @@ We can write
 \langle C \rangle = \sum_i f_i C_i 
 \end{equation}
 
-* Initially we can think about rays going normal to the layers, this is 
+[Initially we can think about rays going normal to the layers, this is 
 implies that the stress in each layer is constant and we have Voigt (check)
-avarage of $C_{33}$. This is our first test (and deserves a Figure)
-* Also or the $x$ direction - with must be Reuss
-* We also have an argument about symmetry, must be hexagonal. This is our
-second test.
-* But even together this is not enough - how can we go further?
-* Point out that the literature is a good source of tests and these
+avarage of $C_{33}$. This is our first test (and deserves a Figure)]
+
+[Also or the $x$ direction - with must be Reuss]
+
+[We also have an argument about symmetry, must be hexagonal. This is our
+second test.]
+
+[But even together this is not enough - how can we go further?
+(1) Point out that the literature is a good source of tests and these
 tests have a special place in confirming scientific reproducibility.
-* Argue that "good enough" in this context is sufficiently good to 
-reproduce the published work, given the precision of the reported results.
+(2) Argue that "good enough" in this context is sufficiently good to 
+reproduce the published work, given the precision of the reported results.]
 
 \begin{figure}[htbp]
    \centering
@@ -184,27 +192,40 @@ reproduce the published work, given the precision of the reported results.
 
 \section{Building a library of tests}
 
-* Make the point that it is valuable to include tests for all published
+Make the point that it is valuable to include tests for all published
 examples, not just a subset of them. Note that not doing this has caught
 us out. 
-* Illustrate this with an example, probably using tensor decomposition 
+
+Illustrate this with an example, probably using tensor decomposition 
 of Browaeys and Chevrot \cite{Browaeys2004}.
-* Sometimes test cases are of exactly the same algorithm - e.g. making
+
+Sometimes test cases are of exactly the same algorithm - e.g. making
 MS\_phasevels go more quickly
-* Here we can be more strict with our tolerances - and we are approaching 
+
+Here we can be more strict with our tolerances - and we are approaching 
 the ream of numerical analysis - which is outside the main thrust of this chapter
-* But we should note that these tests should be distinct
-* Other times we have analytical solutions of simple cases, but again this is 
+
+But we should note that these tests should be distinct
+
+Other times we have analytical solutions of simple cases, but again this is 
 outside the main thrust of the argument
 
 \section{Defensive programming}
 
-* Comment on the fact that this is not the only way we test MSAT.
-* We need to include tests and other code to help maintain high 
+Comment on the fact that this is not the only way we test MSAT.
+
+We need to include tests and other code to help maintain high 
 standards of software engineering (e.g. fails gracefully if provided 
 with invalid data).
-* But these test case are generally ease to think about
-* And are (to some extent) orthogonal to the scientific problem
+
+But these test case are generally ease to think about
+
+And are (to some extent) orthogonal to the scientific problem
+
+Also, create MS\_checkC - so that we, and our users, can make sure 
+their data is sensible
+
+Also - lots of asserts
 
 \section{Lessons}
 
@@ -227,7 +248,7 @@ argue that this sort of test case should have a special place in the scientific
 method.
 
 \bibliographystyle{is-unsrt}
-\bibliography{allpapers} 
+\bibliography{/Users/earawa/Dropbox/BibData/allpapers} 
 
 
 
