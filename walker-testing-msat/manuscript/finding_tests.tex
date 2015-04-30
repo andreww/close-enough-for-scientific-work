@@ -46,27 +46,33 @@ tests themselves we provide some background on the scientific problem
 the code is designed to solve and why we chose to build and release a 
 toolbox to in the first place.
 
-\section{Building MSAT}
+\section{Background}
 
-Seismologists study the propagation of elastic waves through the Earth (or
+Seismologists study the propagation of elastic waves through the Earth (and
 sometimes through the Moon or other planets). Analysis of the small surface 
 displacement caused by these waves and recorded as seismograms by 
 seismometers allows the location and properties of earthquake source 
 and the material between the source and the seismometer to be determined.
 One important and informative property of many Earth materials is that they 
 are elastically anisotropic. This has several implications, for example elastic 
-wave velocities vary with propagation direction. Observation and modelling 
-of this seismic anisotropy can yield... [ FINISH PARAGRAPH - why we may 
-care].
-
-[Do we need to see three (rather than the familiar two) velocities]
+wave velocities vary with propagation direction, generally only three directions 
+of material displacement are possible for any given wave propagation direction
+\cite{Mainprice2007}, and reflection and refraction at interfaces each give
+rise to three reflected and three refracted waves \cite{Musgrave1960}. All of these
+properties have implications for seismology, in some cases making the interpretation
+of seismic data more challenging but in others opening up new avenues of research
+where combining the measurement of anisotropy with an understanding of how
+it forms can produce additional insight into processes in the Earth's interior. 
+XXX EXAMPLES XXX. However, for our purposes, we can gain insight into 
+testing scientific code by limiting our consideration of some of the basic properties
+of elastically anisotropy bodies.
 
 [CORE MATHS - try to limit this to $C_{ijkl}$, stress, strain, state the important 
-symmetry and define $C_{ij}$?]
+symmetry and define $C_{ij}$?] Just focus on what we need! 
 
-[subsection here?]
+\section{Building MSAT}
 
-Before thinking about our testing strategy, it's worth first considering why
+Before thinking about our testing strategy, it is worth  considering why
 we wanted to build MSAT in the first place. We already had a large collection 
 of existing code that was put together piecemeal, to solve particular scientific
 challenges, and this was in use by several lab members. But this code was not
@@ -77,7 +83,7 @@ with useful documentation and others having ``documentation'' entirely passed on
 by word of mouth. The real catalyst for change came from a graduate student 
 discovering a bug in one of our functions. This wasn't so shocking. What was 
 unfortunate was that the student's office mate had found, isolated and fixed the
-same bug two years previously. Once this had been rectified, we set about 
+same bug two years previously. This motivated us to  
 bring our code together into one place with a focus on the following:
 \begin{description}
 
@@ -248,7 +254,8 @@ argue that this sort of test case should have a special place in the scientific
 method.
 
 \bibliographystyle{is-unsrt}
-\bibliography{/Users/earawa/Dropbox/BibData/allpapers} 
+%\bibliography{/Users/earawa/Dropbox/BibData/allpapers} 
+\bibliography{/Users/andrew/Dropbox/BibData/allpapers} 
 
 
 
